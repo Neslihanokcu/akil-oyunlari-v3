@@ -2915,13 +2915,11 @@ LANDING_FEATURES = [
 def render_landing():
     st.markdown(LANDING_CSS, unsafe_allow_html=True)
 
-    n1, n2 = st.columns([4, 2.2])
-    n1.markdown(
-        '<div class="lp-brand">' + icon("brain", 32) + '<span>Akıl dan Zeka Oyunları Yönetim Paneli</span></div>',
+    # Üst başlık (Sağ üstteki buton tamamen kaldırıldı)
+    st.markdown(
+        '<div class="lp-brand" style="margin-bottom: 1rem;">' + icon("brain", 32) + '<span>Akıl ve Zeka Oyunları Yönetim Paneli</span></div>',
         unsafe_allow_html=True,
     )
-    # Sağ üstteki güvenli giriş butonu artık aktif ve tıklanabilir
-    n2.button("🔒 Güvenli Giriş Yap", key="lp_live", on_click=enter_live, use_container_width=True)
 
     st.markdown(
         '<div class="lp-hero">'
@@ -2939,10 +2937,10 @@ def render_landing():
         unsafe_allow_html=True,
     )
 
-    # Butonlar yan yana: Biri ana giriş, diğeri örnek demo
+    # İki buton da parlak ve açık renkli (primary) olacak şekilde yan yana ayarlandı
     b1, b2, _ = st.columns([2, 2, 2.5])
     b1.button("🔑 Panele Giriş Yap", type="primary", key="lp_main_login", on_click=enter_live, use_container_width=True)
-    b2.button("✨ Örnek Verilerle Demoyu Dene", key="lp_demo", on_click=enter_demo, use_container_width=True)
+    b2.button("✨ Örnek Verilerle Demoyu Dene", type="primary", key="lp_demo", on_click=enter_demo, use_container_width=True)
 
     # Özellik Kartları Grid
     st.markdown(

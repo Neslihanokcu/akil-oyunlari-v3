@@ -2806,19 +2806,14 @@ Haklarınıza ilişkin taleplerinizi {KVKK_CONTACT} adresine iletebilirsiniz. Ba
 
 Panele kurum tarafından yüklenen öğrenci verileri bakımından veri sorumlusu, verileri sisteme yükleyen kurumdur. Öğrencilerin ve velilerin aydınlatılması ile gerekli hukuki dayanakların sağlanması kurumun sorumluluğundadır. Çocuklara ait veriler yalnızca eğitsel takip amacıyla ve en az düzeyde işlenmelidir."""
 
-
 def render_footer(dark=False):
     cls = "lp-footer" if dark else "app-footer"
     st.markdown(
         f'<div class="{cls}"><div class="ft-line"></div>'
-        f'<div class="ft-t">© {date.today().year} Akıl ve Zeka Oyunları Yönetim ve Takip Paneli · Tüm hakları saklıdır.</div>'
-        '<div class="ft-s">Bu platformda işlenen kişisel veriler 6698 sayılı Kişisel Verilerin Korunması Kanunu '
-        'kapsamında korunur. Demo ortamındaki tüm veriler kurgusaldır. Ayrıntılar için aşağıdaki '
-        'Aydınlatma Metni\'ni inceleyebilirsiniz.</div></div>',
+        f'<div class="ft-t">© {date.today().year} Akıl ve Zeka Oyunları Yönetim ve Takip Paneli · Tüm hakları saklıdır.</div></div>',
         unsafe_allow_html=True,
     )
-    with st.expander("KVKK Aydınlatma Metni", expanded=False):
-        st.markdown(kvkk_text())
+
 
 
 # ----------------------------------------------------------------------------

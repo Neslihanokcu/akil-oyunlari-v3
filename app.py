@@ -2102,8 +2102,10 @@ def progress_table_tab(students, games):
         if not prog.empty else pd.DataFrame()
 
     if not base.empty and "id" in base.columns and "kart_gecis" in base.columns:
-        base_clean = base[["id", "kart_gecis"]].drop_duplicates(subset=["id"])
-        t = t.merge(base_clean, on="id", how="left")
+        base_clean = base[["id", "kart_gecis"]].drop_duplicates(subset=["id"]).copy()
+        if base_clean.columns.duplicated().any():
+            base_clean = base_clean.loc[:, ~base_clean.columns.duplicated()]
+        t = t.merge(base_clean, on="id", how="left", validate="many_to_one")
     else:
         t["kart_gecis"] = None
 

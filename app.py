@@ -3425,7 +3425,7 @@ def main():
         render_landing()
         return
 
-    st.markdown(APP_EXTRA_CSS, unsafe_allow_html=True)
+    
     if mode == "demo":
         seed_demo_data()
 

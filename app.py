@@ -3413,6 +3413,37 @@ PAGES = {
 
 
 def main():
+    # --- GÜVENLİ GİRİŞ / PIN KONTROL SİSTEMİ ---
+    if "authenticated" not in st.session_state:
+        st.session_state.authenticated = False
+
+    if st.session_state.get("mode") == "live" and not st.session_state.authenticated:
+        st.markdown(LANDING_CSS, unsafe_allow_html=True)
+        st.markdown(
+            '<div class="lp-hero" style="max-width: 450px; margin: 4rem auto; text-align: center;">'
+            '<div class="lp-eyebrow">🔒 Güvenli Yönetici Girişi</div>'
+            '<div class="lp-h1" style="font-size: 1.8rem; margin-bottom: 1rem;">Yetkili PIN Kodu</div>'
+            '<div class="lp-sub" style="margin-bottom: 1.5rem; font-size: 0.95rem;">Bu alan sadece size özeldir. Lütfen yönetici şifrenizi girin.</div>'
+            '</div>',
+            unsafe_allow_html=True,
+        )
+        
+        col1, col2, col3 = st.columns([1, 1.5, 1])
+        with col2:
+            pin_input = st.text_input("Yönetici PIN / Şifre", type="password", key="admin_pin_box")
+            if st.button("🔓 Giriş Yap", type="primary", use_container_width=True):
+                # İstediğiniz şifreyi buraya yazabilirsiniz (Örn: neslihan)
+                if pin_input == "neslihan" or pin_input == "1453": 
+                    st.session_state.authenticated = True
+                    st.rerun()
+                else:
+                    st.error("Hatalı şifre! Lütfen tekrar deneyin.")
+            
+            if st.button("← Ana Sayfaya Dön", use_container_width=True):
+                st.session_state.mode = "landing"
+                st.rerun()
+        return
+    # ---------------------------------------------
     st.set_page_config(
         page_title="Akıl ve Zeka Oyunları Paneli", page_icon="🧠", layout="wide", initial_sidebar_state="auto"
     )

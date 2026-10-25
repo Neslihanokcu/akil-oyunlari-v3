@@ -2900,14 +2900,15 @@ def render_landing():
         '<div class="lp-brand">' + icon("brain", 32) + '<span>Akıl ve Zeka Oyunları Yönetim Paneli</span></div>',
         unsafe_allow_html=True,
     )
-    n2.button("🔑 Yönetici / Kullanıcı Girişi", key="lp_live", on_click=enter_live, use_container_width=True)
+    # Sağ üstteki karmaşık butonu sadeleştirdik
+    n2.button("🔒 Güvenli Giriş", key="lp_live", on_click=enter_live, use_container_width=True)
 
     st.markdown(
         '<div class="lp-hero">'
         '<div class="lp-eyebrow">Eğitim & Turnuva Yönetim Platformu</div>'
         '<div class="lp-h1">Öğrenci gelişimini ve maçları <span>tek panelden</span> yönetin.</div>'
         '<div class="lp-sub">Karşılaşma kayıtları, şube başarı analizleri, bireysel kart/seviye takibi ve turnuva skorları '
-        'için tasarlanmış minimalist yönetim paneline hemen giriş yapın.</div>'
+        'için tasarlanmış yönetim paneline hemen giriş yapın.</div>'
         '<div class="lp-chips">'
         '<span>⚔️ Akıllı Maç Eşleştirme</span>'
         '<span>📊 Şube & Öğrenci Karnesi</span>'
@@ -2918,12 +2919,17 @@ def render_landing():
         unsafe_allow_html=True,
     )
 
-    # Ana Eylem Butonları
-    b1, b2, _ = st.columns([2, 2, 2.5])
-    b1.button("🔑 Yönetici / Kullanıcı Girişi Yap", type="primary", key="lp_main_login", on_click=enter_live, use_container_width=True)
-    b2.button("🎲 Demoyu Örnek Verilerle İncele", key="lp_demo", on_click=enter_demo, use_container_width=True)
+    # Dikkat çekici, renkli ve vurgulu buton alanı
+    b1, b2, _ = st.columns([2.2, 2.2, 2.1])
+    
+    # Ana giriş butonu
+    b1.button("🔑 Panele Giriş Yap", type="primary", key="lp_main_login", on_click=enter_live, use_container_width=True)
+    
+    # Renkli, dikkat çekici demo yönlendirme butonu (Özel HTML/CSS vurgulu)
+    if b2.button("✨ Örnek Verilerle Demoyu Dene", key="lp_demo", use_container_width=True):
+        enter_demo()
 
-    # Sistem İşlevleri Grid Kartları
+    # Alt sistem kartları
     st.markdown(
         '<div class="lp-grid">'
         '<div class="lp-card">'
@@ -2951,7 +2957,6 @@ def render_landing():
     )
 
     render_footer(dark=True)
-
 def generate_recovery_key():
     require_admin()
     raw = secrets.token_hex(8).upper()

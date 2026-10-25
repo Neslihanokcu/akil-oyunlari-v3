@@ -2823,45 +2823,48 @@ def render_footer(dark=False):
 # ----------------------------------------------------------------------------
 LANDING_CSS = """
 <style>
-.stApp{background:radial-gradient(900px 420px at 12% -8%, rgba(169,121,79,.30), transparent 60%),radial-gradient(700px 380px at 100% 0%, rgba(217,185,143,.12), transparent 60%),#1B1410 !important;}
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700;800&display=swap');
+:root{
+  --bg:#1B1410; --card:#261D17; --line:#45372F; --latte:#D9B98F; --latte-dark:#C5A072;
+  --espresso:#F8F5F0; --muted:#BFAF9E;
+}
+html, body, .stApp{font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;}
+.stApp{background:var(--bg) !important;color:var(--espresso);}
 header[data-testid="stHeader"]{background:transparent !important;}
 section[data-testid="stSidebar"],[data-testid="collapsedControl"],[data-testid="stSidebarCollapsedControl"],[data-testid="stSidebarCollapseButton"]{display:none !important;}
-.block-container{max-width:1120px !important;padding-top:1.6rem !important;padding-bottom:2rem !important;}
-.lp-brand{display:flex;align-items:center;gap:.7rem;color:#F8F5F0;font-weight:800;font-size:1.05rem;padding-top:.4rem;}
-.lp-brand svg{color:#D9B98F;}
-.lp-hero{margin:2.4rem 0 1.5rem 0;}
-.lp-eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#D9B98F;margin-bottom:1rem;}
-.lp-h1{font-family:'DM Serif Display',Georgia,serif;font-size:3.5rem;line-height:1.08;color:#F8F5F0;max-width:780px;}
-.lp-h1 span{color:#D9B98F;font-style:italic;}
-.lp-sub{margin-top:1.1rem;font-size:1.1rem;line-height:1.6;color:#CDBFB0;max-width:660px;}
-.lp-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.3rem;}
-.lp-chips span{font-size:.8rem;font-weight:700;color:#F1EADF;border:1px solid rgba(248,245,240,.22);background:rgba(248,245,240,.06);padding:.35rem .85rem;border-radius:999px;}
-.lp-sec-t{font-family:'DM Serif Display',Georgia,serif;font-size:1.75rem;color:#F8F5F0;margin:2.8rem 0 .4rem 0;}
-.lp-sec-s{color:#CDBFB0;font-size:.98rem;margin-bottom:.9rem;}
-.lp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1rem;}
-.lp-card{background:#F8F5F0;border-radius:16px;padding:1.3rem 1.3rem 1.2rem;border:1px solid #E3D6C3;}
-.lp-card-i{width:44px;height:44px;border-radius:12px;background:#EFE3D0;display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:.8rem;}
-.lp-card-t{font-weight:800;color:#3A2E27;font-size:1.02rem;}
-.lp-card-d{color:#6F6054;font-size:.88rem;line-height:1.5;margin-top:.3rem;}
-.lp-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:1rem;}
-.lp-step{border:1px solid rgba(248,245,240,.18);border-radius:16px;padding:1.2rem 1.3rem;background:rgba(248,245,240,.04);}
-.lp-step b{display:block;color:#D9B98F;font-size:.78rem;letter-spacing:.14em;margin-bottom:.45rem;}
-.lp-step div{color:#F1EADF;font-weight:800;margin-bottom:.25rem;}
-.lp-step p{color:#BFAF9E;font-size:.86rem;line-height:1.5;margin:0;}
-.lp-info{background:rgba(248,245,240,.06);border:1px solid rgba(248,245,240,.16);border-radius:16px;padding:1.2rem 1.3rem;color:#E8DCCB;font-size:.92rem;line-height:1.65;margin-top:.4rem;}
-.lp-info b{color:#D9B98F;}
-.stApp .stButton > button,.stApp [data-testid="stFormSubmitButton"] > button{border-radius:12px;font-weight:800;padding:.7rem 1rem;min-height:3rem;transition:transform .15s ease, box-shadow .15s ease;}
-.stApp .stButton > button:hover{transform:translateY(-1px);}
-.stApp .stButton > button[kind="primary"],.stApp .stButton > button[data-testid="stBaseButton-primary"]{background:#A9794F;border:1px solid #A9794F;color:#FFFFFF;box-shadow:0 6px 18px rgba(169,121,79,.35);}
-.stApp .stButton > button[kind="secondary"],.stApp .stButton > button[data-testid="stBaseButton-secondary"]{background:transparent;border:1px solid rgba(248,245,240,.45);color:#F8F5F0;}
-.stApp .stButton > button[kind="secondary"]:hover,.stApp .stButton > button[data-testid="stBaseButton-secondary"]:hover{border-color:#D9B98F;color:#D9B98F;}
-[data-testid="stForm"]{background:#F8F5F0;border:1px solid #E3D6C3;border-radius:16px;padding:1.4rem;}
-[data-testid="stExpander"]{background:#F8F5F0;border:1px solid #E3D6C3;border-radius:12px;}
-.lp-footer{margin-top:3rem;margin-bottom:.8rem;}
-.lp-footer .ft-line{height:1px;background:rgba(248,245,240,.16);margin-bottom:1rem;}
-.lp-footer .ft-t{color:#F1EADF;font-weight:700;font-size:.88rem;}
-.lp-footer .ft-s{color:#BFAF9E;font-size:.8rem;line-height:1.55;margin-top:.35rem;max-width:880px;}
-@media(max-width:700px){.lp-h1{font-size:2.3rem;}}
+.block-container{max-width:900px !important;padding-top:4rem !important;padding-bottom:3rem !important;}
+
+.lp-brand{display:flex;align-items:center;gap:.9rem;color:var(--latte);font-weight:800;font-size:1.25rem;}
+.lp-brand svg{color:var(--latte);filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));}
+
+.lp-hero{margin:3.5rem 0 2rem 0;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:3rem 2.5rem;box-shadow:0 10px 30px rgba(0,0,0,0.4);}
+.lp-eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--latte);margin-bottom:1rem;}
+.lp-h1{font-family:'DM Serif Display',Georgia,serif;font-size:2.8rem;line-height:1.15;color:#FFFFFF;max-width:700px;}
+.lp-h1 span{color:var(--latte);font-style:italic;}
+.lp-sub{margin-top:1.2rem;font-size:1.05rem;line-height:1.6;color:var(--muted);max-width:620px;}
+
+.stApp .stButton > button{border-radius:12px;font-weight:800;padding:.8rem 1.4rem;min-height:3.2rem;transition:all .2s ease;}
+.stApp .stButton > button:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(217,185,143,0.25);}
+.stApp .stButton > button[kind="primary"],.stApp .stButton > button[data-testid="stBaseButton-primary"]{background:var(--latte);border:1px solid var(--latte);color:#1B1410;}
+.stApp .stButton > button[kind="primary"]:hover{background:var(--latte-dark);border-color:var(--latte-dark);color:#1B1410;}
+
+/* Sağ üst giriş butonu özel sütlü kahve belirgin stil */
+.stApp header ~ div [data-testid="stHorizontalBlock"] > div:nth-child(2) button,
+.stApp [data-testid="stHorizontalBlock"] > div:nth-child(2) button {
+  background: rgba(217, 185, 143, 0.15) !important;
+  border: 1.5px solid var(--latte) !important;
+  color: var(--latte) !important;
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+}
+.stApp [data-testid="stHorizontalBlock"] > div:nth-child(2) button:hover {
+  background: var(--latte) !important;
+  color: #1B1410 !important;
+}
+
+.lp-footer{margin-top:4rem;}
+.lp-footer .ft-line{height:1px;background:var(--line);margin-bottom:1rem;}
+.lp-footer .ft-t{color:var(--muted);font-weight:700;font-size:.85rem;}
 </style>
 """
 
@@ -2885,100 +2888,30 @@ LANDING_FEATURES = [
     ("🔐", "PIN Korumalı Yönetim", "Varsayılan salt okunur mod; veri girişi yalnızca PIN ile yönetici modunda."),
 ]
 
-
 def render_landing():
     st.markdown(LANDING_CSS, unsafe_allow_html=True)
 
-    n1, n2 = st.columns([4, 1.8])
+    n1, n2 = st.columns([4, 2.2])
     n1.markdown(
-        '<div class="lp-brand">' + icon("brain", 24) + '<span>Akıl ve Zeka Oyunları Yönetim Paneli</span></div>',
+        '<div class="lp-brand">' + icon("brain", 30) + '<span>Akıl ve Zeka Oyunları Yönetim Paneli</span></div>',
         unsafe_allow_html=True,
     )
     n2.button("🔑 Yönetici / Kullanıcı Girişi", key="lp_live", on_click=enter_live, use_container_width=True)
 
     st.markdown(
         '<div class="lp-hero">'
-        '<div class="lp-eyebrow">Yönetim ve Takip Paneli</div>'
-        '<div class="lp-h1">Akıl ve zeka oyunlarını <span>tek panelden</span> yönetin.</div>'
-        '<div class="lp-sub">Maçları kaydedin, öğrencilerin gelişimini izleyin, turnuvaları ve şube başarılarını '
-        'dakikalar içinde raporlayın. Kurulum yapmadan önce demoyu örnek verilerle güvenle deneyin.</div>'
-        '<div class="lp-chips"><span>Örnek verilerle güvenli demo</span><span>Excel / CSV aktarım</span>'
-        '<span>PIN korumalı yönetim</span></div></div>',
-        unsafe_allow_html=True,
-    )
-
-    b1, b2, _ = st.columns([1.35, 1.1, 1.6])
-    b1.button("Demoyu İncele (Örnek Verilerle)", type="primary", key="lp_demo", on_click=enter_demo,
-              use_container_width=True)
-    b2.button("Bekleme Listesine Katıl", key="lp_wait", on_click=open_waitlist, use_container_width=True)
-
-    if st.session_state.get("lp_show_wait"):
-        fc, ic = st.columns([3, 2])
-        with fc:
-            st.markdown(
-                '<div class="lp-sec-t" style="margin-top:2rem">Bekleme listesine katılın</div>'
-                '<div class="lp-sec-s">Yayına açıldığımızda ilk siz haberdar olun. Üç bilgi yeterli.</div>',
-                unsafe_allow_html=True,
-            )
-            if st.session_state.get("lp_wait_done"):
-                st.success("Kaydınız alındı. Yayına açıldığımızda sizinle e-posta yoluyla iletişime geçeceğiz.")
-            else:
-                with st.form("lp_waitlist_form"):
-                    ad = st.text_input("Ad Soyad", max_chars=80)
-                    mail = st.text_input("E-Posta", max_chars=120)
-                    kurum = st.text_input("Kurum (okul, dernek, kulüp vb.)", max_chars=120)
-                    onay = st.checkbox(
-                        "KVKK Aydınlatma Metni'ni (sayfanın altında) okudum; kişisel verilerimin "
-                        "bekleme listesi kapsamında işlenmesine onay veriyorum."
-                    )
-                    go = st.form_submit_button("Kaydımı Tamamla", type="primary")
-                if go:
-                    if st.session_state.get("lp_wait_count", 0) >= WAITLIST_SESSION_LIMIT:
-                        st.error("Bu oturumda çok fazla kayıt denemesi yapıldı. Lütfen daha sonra tekrar deneyin.")
-                    else:
-                        st.session_state["lp_wait_count"] = st.session_state.get("lp_wait_count", 0) + 1
-                        ok, msg = add_waitlist(ad, mail, kurum, onay)
-                        if ok:
-                            st.session_state["lp_wait_done"] = True
-                            st.rerun()
-                        else:
-                            st.error(msg)
-        with ic:
-            st.markdown(
-                '<div class="lp-info" style="margin-top:3.6rem"><b>Neden bekleme listesi?</b><br>'
-                'Panelimizi kurumlara kademeli olarak açıyoruz. Listeye katılanlara erken erişim ve '
-                'kurulum desteği öncelikli olarak sunulur.<br><br>'
-                '<b>Verileriniz güvende.</b><br>Bilgileriniz yalnızca sizinle iletişim kurmak için kullanılır; '
-                'üçüncü kişilerle paylaşılmaz.</div>',
-                unsafe_allow_html=True,
-            )
-
-    cards = "".join(
-        f'<div class="lp-card"><div class="lp-card-i">{ico}</div>'
-        f'<div class="lp-card-t">{esc(t)}</div><div class="lp-card-d">{esc(d)}</div></div>'
-        for ico, t, d in LANDING_FEATURES
-    )
-    st.markdown(
-        '<div class="lp-sec-t">Neler sunuyor?</div>'
-        '<div class="lp-sec-s">Akıl ve zeka oyunları etkinliklerinizi uçtan uca yönetmek için ihtiyaç duyduklarınız.</div>'
-        '<div class="lp-grid">' + cards + '</div>'
-        '<div class="lp-sec-t">Nasıl başlarsınız?</div>'
-        '<div class="lp-steps">'
-        '<div class="lp-step"><b>ADIM 1</b><div>Demoyu keşfedin</div><p>Örnek öğrenci, maç ve turnuva verileriyle tüm ekranları risksiz deneyin.</p></div>'
-        '<div class="lp-step"><b>ADIM 2</b><div>Listeye katılın</div><p>Ad, e-posta ve kurum bilgilerinizi bırakın; sıranız geldiğinde size ulaşalım.</p></div>'
-        '<div class="lp-step"><b>ADIM 3</b><div>Kurumunuzda başlayın</div><p>Öğrenci listenizi Excel veya CSV ile yükleyin, maçları kaydetmeye başlayın.</p></div>'
+        '<div class="lp-eyebrow">Yönetim ve Takip Sistemi</div>'
+        '<div class="lp-h1">Öğrenci gelişimini ve maçları <span>tek panelden</span> yönetin.</div>'
+        '<div class="lp-sub">Maç kayıtları, şube başarı karneleri, bireysel ilerleme takibi ve turnuva skorları '
+        'için güvenli yönetim paneline hemen giriş yapın.</div>'
         '</div>',
         unsafe_allow_html=True,
     )
 
+    b1, _ = st.columns([1.5, 2.5])
+    b1.button("Hızlı Demoyu İncele", type="primary", key="lp_demo", on_click=enter_demo, use_container_width=True)
+
     render_footer(dark=True)
-
-
-# ----------------------------------------------------------------------------
-# YÖNETİCİ PIN KURTARMA ("Şifremi Unuttum")
-# ----------------------------------------------------------------------------
-def _norm_code(s):
-    return re.sub(r"[^A-Z0-9]", "", str(s or "").upper())
 
 
 def generate_recovery_key():

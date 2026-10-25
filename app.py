@@ -2834,9 +2834,10 @@ header[data-testid="stHeader"]{background:transparent !important;}
 section[data-testid="stSidebar"],[data-testid="collapsedControl"],[data-testid="stSidebarCollapsedControl"],[data-testid="stSidebarCollapseButton"]{display:none !important;}
 .block-container{max-width:1050px !important;padding-top:2.5rem !important;padding-bottom:3rem !important;}
 
-/* Marka Başlığı */
-.lp-brand{display:flex;align-items:center;gap:.8rem;color:var(--latte);font-weight:800;font-size:1.3rem;}
-.lp-brand svg{color:var(--latte);filter:drop-shadow(0 2px 6px rgba(217,185,143,0.3));}
+/* Üst Başlık - Daha Vurgulu ve Şık Latte Tonu */
+.lp-brand{display:flex;align-items:center;gap:.9rem;color:var(--latte);font-weight:800;font-size:1.35rem;letter-spacing:-0.2px;}
+.lp-brand span{color:var(--latte);text-shadow:0 2px 8px rgba(217,185,143,0.25);}
+.lp-brand svg{color:var(--latte);filter:drop-shadow(0 2px 6px rgba(217,185,143,0.35));}
 
 /* Hero Kart Yapısı */
 .lp-hero{margin:2.2rem 0 1.8rem 0;background:linear-gradient(145deg, #2B2018 0%, #201711 100%);border:1px solid var(--card-border);border-radius:20px;padding:2.8rem 2.5rem;box-shadow:0 20px 40px rgba(0,0,0,0.45);}
@@ -2857,48 +2858,29 @@ section[data-testid="stSidebar"],[data-testid="collapsedControl"],[data-testid="
 .lp-card-t{font-weight:800;color:var(--latte);font-size:1.02rem;margin-top:.2rem;}
 .lp-card-d{color:var(--text-muted);font-size:.86rem;line-height:1.5;margin-top:.35rem;}
 
-/* TÜM BUTONLARI CANLI VE TIKLANABİLİR YAPAN KESİN CSS */
+/* GEÇİŞ NOKTASI BUTONLARI: Çiğ durmayan, koyu ambiyansa uyumlu ve asil latte geçişli tasarım */
 .stApp .stButton > button {
-  border-radius: 12px !important;
+  border-radius: 14px !important;
   font-weight: 800 !important;
-  padding: .75rem 1.4rem !important;
-  min-height: 3.2rem !important;
-  background: #362920 !important;
-  border: 1.5px solid var(--latte) !important;
-  color: #F8F5F0 !important;
-  transition: all 0.2s ease !important;
+  padding: .85rem 1.6rem !important;
+  min-height: 3.4rem !important;
+  background: linear-gradient(135deg, #32251D 0%, #221812 100%) !important;
+  border: 1.5px solid rgba(217,185,143,0.45) !important;
+  color: var(--latte-light) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 .stApp .stButton > button:hover {
   background: var(--latte) !important;
   color: #1A130E !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(217,185,143,0.3);
-}
-/* Birincil Buton Özel Vurgusu */
-.stApp .stButton > button[kind="primary"], .stApp .stButton > button[data-testid="stBaseButton-primary"] {
-  background: linear-gradient(135deg,#D9B98F 0%,#C5A072 100%) !important;
-  border: none !important;
-  color: #1A130E !important;
-}
-.stApp .stButton > button[kind="primary"]:hover {
-  background: #EFE3D0 !important;
-  color: #1A130E !important;
+  border-color: var(--latte) !important;
+  transform: translateY(-2.5px);
+  box-shadow: 0 8px 25px rgba(217,185,143,0.3) !important;
 }
 
 .lp-footer{margin-top:3.5rem;}
 .lp-footer .ft-line{height:1px;background:var(--card-border);margin-bottom:1.2rem;}
 .lp-footer .ft-t{color:var(--text-muted);font-weight:700;font-size:.85rem;text-align:center;}
-</style>
-"""
-
-APP_EXTRA_CSS = """
-<style>
-.demo-bar{background:#2B211B;color:#F8F5F0;border-radius:12px;padding:.85rem 1.1rem;font-size:.9rem;border-left:5px solid #D9B98F;line-height:1.45;}
-.demo-bar b{color:#D9B98F;letter-spacing:.08em;margin-right:.6rem;}
-.app-footer{margin-top:2.5rem;}
-.app-footer .ft-line{height:1px;background:#E3D6C3;margin-bottom:.9rem;}
-.app-footer .ft-t{font-weight:700;font-size:.85rem;color:#6F5A4A;}
-.app-footer .ft-s{font-size:.78rem;color:#8A7B6E;margin-top:.3rem;line-height:1.5;max-width:880px;}
 </style>
 """
 

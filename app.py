@@ -2957,6 +2957,7 @@ def render_landing():
     )
 
     render_footer(dark=True)
+    
 def generate_recovery_key():
     require_admin()
     raw = secrets.token_hex(8).upper()

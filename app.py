@@ -2105,7 +2105,6 @@ if not base.empty and "id" in base.columns and "kart_gecis" in base.columns:
     base_clean = base[["id", "kart_gecis"]].drop_duplicates(subset=["id"])
     t = t.merge(base_clean, on="id", how="left")
 else:
-    
         t["kart_gecis"] = None
     t["kart"] = pd.to_numeric(t["kart"], errors="coerce").astype("Int64")
     t["kart_gecis"] = pd.to_numeric(t["kart_gecis"], errors="coerce").astype("Int64")

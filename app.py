@@ -2892,12 +2892,12 @@ LANDING_FEATURES = [
 def render_landing():
     st.markdown(LANDING_CSS, unsafe_allow_html=True)
 
-    n1, n2 = st.columns([4, 1.5])
+    n1, n2 = st.columns([4, 1.8])
     n1.markdown(
-        '<div class="lp-brand">' + icon("brain", 24) + '<span>Akıl ve Zeka Oyunları</span></div>',
+        '<div class="lp-brand">' + icon("brain", 24) + '<span>Akıl ve Zeka Oyunları Yönetim Paneli</span></div>',
         unsafe_allow_html=True,
     )
-    n2.button("Mevcut kullanıcı girişi →", key="lp_live", on_click=enter_live, use_container_width=True)
+    n2.button("🔑 Yönetici / Kullanıcı Girişi", key="lp_live", on_click=enter_live, use_container_width=True)
 
     st.markdown(
         '<div class="lp-hero">'

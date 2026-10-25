@@ -2825,7 +2825,7 @@ LANDING_CSS = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700;800&display=swap');
 :root{
-  --bg:#1A130E; --card:#261C15; --card-border:#453529; --latte:#D9B98F; --latte-light:#EFE3D0;
+  --bg:#1A130E; --card:#261C15; --card-border:#453529; --latte:#D9B98F; --latte-light:#F8F5F0;
   --latte-hover:#C5A072; --text-main:#F8F5F0; --text-muted:#B3A292;
 }
 html, body, .stApp{font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;}
@@ -2834,36 +2834,56 @@ header[data-testid="stHeader"]{background:transparent !important;}
 section[data-testid="stSidebar"],[data-testid="collapsedControl"],[data-testid="stSidebarCollapsedControl"],[data-testid="stSidebarCollapseButton"]{display:none !important;}
 .block-container{max-width:1050px !important;padding-top:2.5rem !important;padding-bottom:3rem !important;}
 
-/* Sütlü Kahve Marka Başlığı */
-.lp-brand{display:flex;align-items:center;gap:.8rem;color:var(--latte);font-weight:800;font-size:1.3rem;letter-spacing:-0.2px;}
+/* Marka Başlığı */
+.lp-brand{display:flex;align-items:center;gap:.8rem;color:var(--latte);font-weight:800;font-size:1.3rem;}
 .lp-brand svg{color:var(--latte);filter:drop-shadow(0 2px 6px rgba(217,185,143,0.3));}
 
 /* Hero Kart Yapısı */
-.lp-hero{margin:2.2rem 0 1.8rem 0;background:linear-gradient(145deg, #2B2018 0%, #201711 100%);border:1px solid var(--card-border);border-radius:20px;padding:2.8rem 2.5rem;box-shadow:0 20px 40px rgba(0,0,0,0.45);position:relative;overflow:hidden;}
-.lp-hero::after{content:"";position:absolute;top:-50%;right:-20%;width:300px;height:300px;background:rgba(217,185,143,0.06);border-radius:50%;blur:60px;pointer-events:none;}
+.lp-hero{margin:2.2rem 0 1.8rem 0;background:linear-gradient(145deg, #2B2018 0%, #201711 100%);border:1px solid var(--card-border);border-radius:20px;padding:2.8rem 2.5rem;box-shadow:0 20px 40px rgba(0,0,0,0.45);}
 .lp-eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--latte);margin-bottom:.9rem;}
 .lp-h1{font-family:'DM Serif Display',Georgia,serif;font-size:2.8rem;line-height:1.15;color:#FFFFFF;max-width:720px;}
 .lp-h1 span{color:var(--latte);font-style:italic;}
 .lp-sub{margin-top:1.1rem;font-size:1.05rem;line-height:1.6;color:var(--text-muted);max-width:640px;}
 
-/* Rozetler (Chips) */
+/* Rozetler */
 .lp-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem;}
-.lp-chips span{font-size:.82rem;font-weight:700;color:var(--latte-light);background:rgba(217,185,143,0.08);border:1px solid rgba(217,185,143,0.22);padding:.4rem .9rem;border-radius:99px;backdrop-filter:blur(4px);}
+.lp-chips span{font-size:.82rem;font-weight:700;color:var(--latte-light);background:rgba(217,185,143,0.08);border:1px solid rgba(217,185,143,0.22);padding:.4rem .9rem;border-radius:99px;}
 
-/* Izgara Kartları (Features Grid) */
+/* Grid Kartlar */
 .lp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;margin-top:2rem;}
-.lp-card{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:1.3rem;transition:all .25 ease;}
+.lp-card{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:1.3rem;transition:all .25s ease;}
 .lp-card:hover{border-color:var(--latte);transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,0.3);}
 .lp-card-i{font-size:1.6rem;margin-bottom:.6rem;display:inline-block;padding:.4rem .6rem;background:rgba(217,185,143,0.1);border-radius:10px;}
 .lp-card-t{font-weight:800;color:var(--latte);font-size:1.02rem;margin-top:.2rem;}
 .lp-card-d{color:var(--text-muted);font-size:.86rem;line-height:1.5;margin-top:.35rem;}
 
-/* Buton Stilleri */
-.stApp .stButton > button{border-radius:12px;font-weight:800;padding:.75rem 1.4rem;min-height:3.1rem;transition:all .2s ease;}
-.stApp .stButton > button:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(217,185,143,0.25);}
-.stApp .stButton > button[kind="primary"],.stApp .stButton > button[data-testid="stBaseButton-primary"]{background:linear-gradient(135deg,#D9B98F 0%,#C5A072 100%);border:none;color:#1A130E !important;}
-.stApp .stButton > button[kind="primary"] p{color:#1A130E !important;font-weight:800;}
-.stApp .stButton > button[kind="secondary"],.stApp .stButton > button[data-testid="stBaseButton-secondary"]{background:rgba(217,185,143,0.08);border:1.5px solid var(--card-border);color:var(--latte-light);}
+/* TÜM BUTONLARI CANLI VE TIKLANABİLİR YAPAN KESİN CSS */
+.stApp .stButton > button {
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+  padding: .75rem 1.4rem !important;
+  min-height: 3.2rem !important;
+  background: #362920 !important;
+  border: 1.5px solid var(--latte) !important;
+  color: #F8F5F0 !important;
+  transition: all 0.2s ease !important;
+}
+.stApp .stButton > button:hover {
+  background: var(--latte) !important;
+  color: #1A130E !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217,185,143,0.3);
+}
+/* Birincil Buton Özel Vurgusu */
+.stApp .stButton > button[kind="primary"], .stApp .stButton > button[data-testid="stBaseButton-primary"] {
+  background: linear-gradient(135deg,#D9B98F 0%,#C5A072 100%) !important;
+  border: none !important;
+  color: #1A130E !important;
+}
+.stApp .stButton > button[kind="primary"]:hover {
+  background: #EFE3D0 !important;
+  color: #1A130E !important;
+}
 
 .lp-footer{margin-top:3.5rem;}
 .lp-footer .ft-line{height:1px;background:var(--card-border);margin-bottom:1.2rem;}
@@ -2897,11 +2917,11 @@ def render_landing():
 
     n1, n2 = st.columns([4, 2.2])
     n1.markdown(
-        '<div class="lp-brand">' + icon("brain", 32) + '<span>Akıl ve Zeka Oyunları Yönetim Paneli</span></div>',
+        '<div class="lp-brand">' + icon("brain", 32) + '<span>Akıl dan Zeka Oyunları Yönetim Paneli</span></div>',
         unsafe_allow_html=True,
     )
-    # Sağ üstteki karmaşık butonu sadeleştirdik
-    n2.button("🔒 Güvenli Giriş", key="lp_live", on_click=enter_live, use_container_width=True)
+    # Sağ üstteki güvenli giriş butonu artık aktif ve tıklanabilir
+    n2.button("🔒 Güvenli Giriş Yap", key="lp_live", on_click=enter_live, use_container_width=True)
 
     st.markdown(
         '<div class="lp-hero">'
@@ -2919,17 +2939,12 @@ def render_landing():
         unsafe_allow_html=True,
     )
 
-    # Dikkat çekici, renkli ve vurgulu buton alanı
-    b1, b2, _ = st.columns([2.2, 2.2, 2.1])
-    
-    # Ana giriş butonu
+    # Butonlar yan yana: Biri ana giriş, diğeri örnek demo
+    b1, b2, _ = st.columns([2, 2, 2.5])
     b1.button("🔑 Panele Giriş Yap", type="primary", key="lp_main_login", on_click=enter_live, use_container_width=True)
-    
-    # Renkli, dikkat çekici demo yönlendirme butonu (Özel HTML/CSS vurgulu)
-    if b2.button("✨ Örnek Verilerle Demoyu Dene", key="lp_demo", use_container_width=True):
-        enter_demo()
+    b2.button("✨ Örnek Verilerle Demoyu Dene", key="lp_demo", on_click=enter_demo, use_container_width=True)
 
-    # Alt sistem kartları
+    # Özellik Kartları Grid
     st.markdown(
         '<div class="lp-grid">'
         '<div class="lp-card">'

@@ -2898,6 +2898,11 @@ def render_landing():
         unsafe_allow_html=True,
     )
     n2.button("🔑 Yönetici / Kullanıcı Girişi", key="lp_live", on_click=enter_live, use_container_width=True)
+```[cite: 10]
+
+<FollowUp>
+<prompt>`Ctrl + F` ile arama yapıp ilgili satırı bulabildiniz mi?</prompt>
+</FollowUp>
 
     st.markdown(
         '<div class="lp-hero">'

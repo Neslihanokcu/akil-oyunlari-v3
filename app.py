@@ -2099,13 +2099,14 @@ def progress_table_tab(students, games):
     t = t.merge(cur[["id", "kart", "seviye", "tarih", "kaynak"]], on="id", how="left") if not cur.empty else t.assign(
         kart=None, seviye=None, tarih=None, kaynak=None)
     base = latest_progress(prog[prog.kaynak == "gecis"]).rename(columns={"student_id": "id", "kart": "kart_gecis"}) \
-    if not prog.empty else pd.DataFrame()
+        if not prog.empty else pd.DataFrame()
 
-if not base.empty and "id" in base.columns and "kart_gecis" in base.columns:
-    base_clean = base[["id", "kart_gecis"]].drop_duplicates(subset=["id"])
-    t = t.merge(base_clean, on="id", how="left")
-else:
+    if not base.empty and "id" in base.columns and "kart_gecis" in base.columns:
+        base_clean = base[["id", "kart_gecis"]].drop_duplicates(subset=["id"])
+        t = t.merge(base_clean, on="id", how="left")
+    else:
         t["kart_gecis"] = None
+
     t["kart"] = pd.to_numeric(t["kart"], errors="coerce").astype("Int64")
     t["kart_gecis"] = pd.to_numeric(t["kart_gecis"], errors="coerce").astype("Int64")
     t["fark"] = (t.kart - t.kart_gecis).where(t.kaynak != "gecis")

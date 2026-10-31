@@ -2825,8 +2825,8 @@ LANDING_CSS = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700;800&display=swap');
 :root{
-  --bg:#1A130E; --card:#261C15; --card-border:#453529; --latte:#D9B98F; --latte-light:#F8F5F0;
-  --latte-hover:#C5A072; --text-main:#F8F5F0; --text-muted:#B3A292;
+  --bg:#2D221A; --card:#3B2E24; --card-border:#574537; --latte:#E2C49D; --latte-light:#FFFFFF;
+  --latte-hover:#D1AB7C; --text-main:#FFFFFF; --text-muted:#C8B7A6;
 }
 html, body, .stApp{font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;}
 .stApp{background: radial-gradient(1000px 500px at 50% -10%, rgba(217,185,143,0.15), transparent 70%), #1A130E !important; color:var(--text-main);}

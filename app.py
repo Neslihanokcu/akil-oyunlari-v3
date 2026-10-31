@@ -1231,18 +1231,27 @@ CSS = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700;800&display=swap');
 :root{
-  --bg:#F8F5F0; --card:#FFFDFA; --line:#E6DCD0; --milk:#F1EADF; --latte:#E2D3BF;
-  --side:#45372F; --side-hi:#54443A;
-  --taba:#A9794F; --taba-d:#8A5E3E; --mocha:#6F5443; --espresso:#3A2E27; --muted:#85766A;
-  --shadow:0 4px 12px rgba(0,0,0,.03); --shadow-h:0 10px 24px rgba(69,55,47,.10);
+  --bg:#F4F2EC; --card:#FFFFFF; --card-border:#E3DED4; --latte:#1C3328; --latte-light:#FFFFFF;
+  --latte-hover:#274737; --text-main:#2C2825; --text-muted:#6E665F;
+  --success:#2F7D62; --warning:#C8872B; --error:#B94C4C;
 }
 html, body, .stApp{font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;}
-.stApp{background:var(--bg);color:var(--espresso);}
-.stApp p, .stApp label, .stApp li, .stApp span, .stApp div[data-testid="stMarkdownContainer"]{color:var(--espresso);}
-header[data-testid="stHeader"]{background:transparent;}
-.block-container{padding-top:2rem;max-width:1200px;}
-h1,h2,h3,h4{font-family:'DM Serif Display',Georgia,serif !important;color:var(--espresso) !important;letter-spacing:.2px;}
-hr{border-color:var(--line);}
+.stApp{background-color: var(--bg) !important; color:var(--text-main) !important;}
+header[data-testid="stHeader"]{background:transparent !important;}
+.block-container{max-width:1050px !important;padding-top:2.5rem !important;padding-bottom:3rem !important;}
+
+/* Sol Menü (Sidebar) - Koyu Petrol Yeşili */
+section[data-testid="stSidebar"], section[data-testid="stSidebar"] > div {
+  background-color: #13221B !important;
+  color: #F4F2EC !important;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+section[data-testid="stSidebar"] span, 
+section[data-testid="stSidebar"] p, 
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] div {
+  color: #F4F2EC !important;
+}
 
 section[data-testid="stSidebar"], section[data-testid="stSidebar"] > div{background:var(--side) !important;}
 section[data-testid="stSidebar"]{border-right:none;}

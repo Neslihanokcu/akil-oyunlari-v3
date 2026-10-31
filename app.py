@@ -2824,66 +2824,196 @@ def render_footer(dark=False):
 LANDING_CSS = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700;800&display=swap');
-:root{
-  --bg:#16221A; --card:#223329; --card-border:#3A5443; --latte:#E2C49D; --latte-light:#FFFFFF;
-  --latte-hover:#CFAF85; --text-main:#FFFFFF; --text-muted:#B0C4B8;
+
+:root {
+  --bg-main: #F4F2EC;          /* Ana ekran kırık beyaz zemin */
+  --card-bg: #FFFFFF;          /* Kartlar saf beyaz */
+  --card-border: #E3DED4;      /* Zarif kenarlık çizgisi */
+  
+  --sidebar-bg: #13221B;       /* Koyu petrol yeşili sol menü */
+  --sidebar-text: #F4F2EC;     /* Menü metinleri */
+  --sidebar-muted: #95A39B;    /* Menü ikincil metin */
+  
+  --primary: #1C3328;          /* Petrol yeşili buton ve vurgular */
+  --primary-hover: #274737;    /* Buton hover tonu */
+  
+  --accent-amber: #C8872B;     /* Amber vurgu (Uyarı / Önemli alanlar) */
+  --success: #2F7D62;          /* Başarılı işlem rengi */
+  --error: #B94C4C;            /* Hata rengi */
+  
+  --text-main: #2C2825;        /* Ana metin koyu ton */
+  --text-muted: #6E665F;       /* İkincil metin */
 }
-html, body, .stApp{font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;}
-.stApp{background: radial-gradient(1000px 500px at 50% -10%, rgba(226,196,157,0.12), transparent 70%), #16221A !important; color:var(--text-main);}
-header[data-testid="stHeader"]{background:transparent !important;}
-section[data-testid="stSidebar"],[data-testid="collapsedControl"],[data-testid="stSidebarCollapsedControl"],[data-testid="stSidebarCollapseButton"]{display:none !important;}
-.block-container{max-width:1050px !important;padding-top:2.5rem !important;padding-bottom:3rem !important;}
 
-/* Üst Başlık */
-.lp-brand{display:flex;align-items:center;gap:.9rem;color:var(--latte);font-weight:800;font-size:1.35rem;letter-spacing:-0.2px;}
-.lp-brand span{color:var(--latte);text-shadow:0 2px 8px rgba(226,196,157,0.25);}
-.lp-brand svg{color:var(--latte);filter:drop-shadow(0 2px 6px rgba(226,196,157,0.35));}
+html, body, .stApp {
+  font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
 
-/* Hero Kart Yapısı */
-.lp-hero{margin:2.2rem 0 1.8rem 0;background:linear-gradient(145deg, #283D31 0%, #1D2D24 100%);border:1px solid var(--card-border);border-radius:20px;padding:2.8rem 2.5rem;box-shadow:0 20px 40px rgba(0,0,0,0.45);}
-.lp-eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--latte);margin-bottom:.9rem;}
-.lp-h1{font-family:'DM Serif Display',Georgia,serif;font-size:2.8rem;line-height:1.15;color:#FFFFFF;max-width:720px;}
-.lp-h1 span{color:var(--latte);font-style:italic;}
-.lp-sub{margin-top:1.1rem;font-size:1.05rem;line-height:1.6;color:var(--text-muted);max-width:640px;}
+/* Ana Ekran Arkaplanı (Kırık Beyaz) */
+.stApp {
+  background-color: var(--bg-main) !important;
+  color: var(--text-main) !important;
+}
 
-/* Rozetler */
-.lp-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem;}
-.lp-chips span{font-size:.82rem;font-weight:700;color:var(--latte-light);background:rgba(226,196,157,0.08);border:1px solid rgba(226,196,157,0.22);padding:.4rem .9rem;border-radius:99px;}
+header[data-testid="stHeader"] {
+  background: transparent !important;
+}
 
-/* Grid Kartlar */
-.lp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;margin-top:2rem;}
-.lp-card{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:1.3rem;transition:all .25s ease;}
-.lp-card:hover{border-color:var(--latte);transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,0.3);}
-.lp-card-i{font-size:1.6rem;margin-bottom:.6rem;display:inline-block;padding:.4rem .6rem;background:rgba(226,196,157,0.1);border-radius:10px;}
-.lp-card-t{font-weight:800;color:var(--latte);font-size:1.02rem;margin-top:.2rem;}
-.lp-card-d{color:var(--text-muted);font-size:.86rem;line-height:1.5;margin-top:.35rem;}
+/* Sol Menü (Sidebar) - Koyu Petrol Yeşili */
+section[data-testid="stSidebar"] {
+  background-color: var(--sidebar-bg) !important;
+  color: var(--sidebar-text) !important;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
 
-/* GEÇİŞ NOKTASI BUTONLARI: Orman Yeşili ve Latte Uyumlu */
+section[data-testid="stSidebar"] .stMarkdown, 
+section[data-testid="stSidebar"] span, 
+section[data-testid="stSidebar"] p, 
+section[data-testid="stSidebar"] label {
+  color: var(--sidebar-text) !important;
+}
+
+/* Sol Menü Radyo Butonları / Seçim Alanları */
+section[data-testid="stSidebar"] div[data-baseweb="radio"] div {
+  color: var(--sidebar-text) !important;
+}
+
+.block-container {
+  max-width: 1050px !important;
+  padding-top: 2.5rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* Karşılama Ekranı Başlık */
+.lp-brand {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.2px;
+}
+.lp-brand span {
+  color: var(--primary);
+}
+
+/* Hero Kart Yapısı (Ana Panel Giriş Alanları) */
+.lp-hero {
+  margin: 2.2rem 0 1.8rem 0;
+  background: linear-gradient(145deg, #FFFFFF 0%, #FAF8F5 100%);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 2.8rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+.lp-eyebrow {
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent-amber);
+  margin-bottom: .9rem;
+}
+.lp-h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 2.8rem;
+  line-height: 1.15;
+  color: var(--text-main);
+  max-width: 720px;
+}
+.lp-h1 span {
+  color: var(--accent-amber);
+  font-style: italic;
+}
+.lp-sub {
+  margin-top: 1.1rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 640px;
+}
+
+/* Grid Kartlar (Ana Ekran Beyaz Kartlar) */
+.lp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 1.1rem;
+  margin-top: 2rem;
+}
+.lp-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.3rem;
+  transition: all .25s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+.lp-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(28,51,40,0.08);
+}
+.lp-card-i {
+  font-size: 1.6rem;
+  margin-bottom: .6rem;
+  display: inline-block;
+  padding: .4rem .6rem;
+  background: rgba(47,125,98,0.1);
+  border-radius: 10px;
+}
+.lp-card-t {
+  font-weight: 800;
+  color: var(--primary);
+  font-size: 1.02rem;
+  margin-top: .2rem;
+}
+.lp-card-d {
+  color: var(--text-muted);
+  font-size: .86rem;
+  line-height: 1.5;
+  margin-top: .35rem;
+}
+
+/* Genel Butonlar (Petrol Yeşili ve Amber Vurgulu) */
 .stApp .stButton > button {
   border-radius: 14px !important;
   font-weight: 800 !important;
   padding: .85rem 1.6rem !important;
   min-height: 3.4rem !important;
-  background: linear-gradient(135deg, #2A3F33 0%, #1F3027 100%) !important;
-  border: 1.5px solid rgba(226,196,157,0.4) !important;
-  color: var(--latte) !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.35) !important;
+  background: var(--primary) !important;
+  border: 1.5px solid transparent !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 15px rgba(28,51,40,0.2) !important;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 .stApp .stButton > button:hover {
-  background: var(--latte) !important;
-  color: #16221A !important;
-  border-color: var(--latte) !important;
-  transform: translateY(-2.5px);
-  box-shadow: 0 8px 25px rgba(226,196,157,0.3) !important;
+  background: var(--primary-hover) !important;
+  transform: translateY(-2.0px);
+  box-shadow: 0 6px 20px rgba(28,51,40,0.3) !important;
 }
 
-.lp-footer{margin-top:3.5rem;}
-.lp-footer .ft-line{height:1px;background:var(--card-border);margin-bottom:1.2rem;}
-.lp-footer .ft-t{color:var(--text-muted);font-weight:700;font-size:.85rem;text-align:center;}
+/* Özel Durum Renk Sınıfları */
+.status-success { color: #2F7D62; font-weight: 700; }
+.status-warning { color: #C8872B; font-weight: 700; }
+.status-error   { color: #B94C4C; font-weight: 700; }
+
+.lp-footer {
+  margin-top: 3.5rem;
+}
+.lp-footer .ft-line {
+  height: 1px;
+  background: var(--card-border);
+  margin-bottom: 1.2rem;
+}
+.lp-footer .ft-t {
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: .85rem;
+  text-align: center;
+}
 </style>
 """
-
 LANDING_FEATURES = [
     ("⚔️", "Maç Girişi ve Akıllı Eşleştirme", "İkili oyun maçlarını kaydedin; benzer seviyedeki öğrencileri otomatik eşleştirin."),
     ("🧩", "Bireysel Gelişim ve Karne", "Kart ve seviye ilerlemesini dönem dönem izleyin, öğrenci karnesini görüntüleyin."),

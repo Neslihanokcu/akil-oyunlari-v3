@@ -1231,8 +1231,8 @@ CSS = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700;800&display=swap');
 :root{
-  --bg:#F4F2EC; --card:#FFFFFF; --card-border:#E3DED4; --latte:#1C3328; --latte-light:#FFFFFF;
-  --latte-hover:#274737; --text-main:#2C2825; --text-muted:#6E665F;
+  --bg:#F4F2EC; --card:#FFFFFF; --card-border:#E3DED4; --latte:#2C4238; --latte-light:#FFFFFF;
+  --latte-hover:#355245; --text-main:#2C2825; --text-muted:#6E665F;
   --success:#2F7D62; --warning:#C8872B; --error:#B94C4C;
 }
 html, body, .stApp{font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;}
@@ -1240,14 +1240,9 @@ html, body, .stApp{font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-
 header[data-testid="stHeader"]{background:transparent !important;}
 .block-container{max-width:1050px !important;padding-top:2.5rem !important;padding-bottom:3rem !important;}
 
-/* Sol Menü (Sidebar) - Koyu Petrol Yeşili */
+/* Sol Menü (Sidebar) - Ferah Mint / Adaçayı Tonu (#2C4238) */
 section[data-testid="stSidebar"], section[data-testid="stSidebar"] > div {
-  background-color: #13221B !important;
-  color: #F4F2EC !important;
-  border-right: 1px solid rgba(255,255,255,0.08);
-}
-section[data-testid="stSidebar"], section[data-testid="stSidebar"] > div {
-  background-color: #13221B !important;
+  background-color: #2C4238 !important;
   color: #F4F2EC !important;
   border-right: 1px solid rgba(255,255,255,0.08);
 }

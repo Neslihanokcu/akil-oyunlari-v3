@@ -1246,18 +1246,17 @@ section[data-testid="stSidebar"], section[data-testid="stSidebar"] > div {
   color: #F4F2EC !important;
   border-right: 1px solid rgba(255,255,255,0.08);
 }
+section[data-testid="stSidebar"], section[data-testid="stSidebar"] > div {
+  background-color: #13221B !important;
+  color: #F4F2EC !important;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
 section[data-testid="stSidebar"] span, 
 section[data-testid="stSidebar"] p, 
 section[data-testid="stSidebar"] label,
 section[data-testid="stSidebar"] div {
   color: #F4F2EC !important;
 }
-
-section[data-testid="stSidebar"], section[data-testid="stSidebar"] > div{background:var(--side) !important;}
-section[data-testid="stSidebar"]{border-right:none;}
-section[data-testid="stSidebar"] .block-container{padding-top:1.5rem;}
-section[data-testid="stSidebar"] p, section[data-testid="stSidebar"] span,
-section[data-testid="stSidebar"] label, section[data-testid="stSidebar"] div{color:#EFE6DA;}
 [data-testid="stSidebarCollapseButton"] button, [data-testid="stSidebarCollapseButton"] span,
 [data-testid="stSidebarCollapseButton"] svg{color:#E9DFD2 !important;fill:#E9DFD2 !important;}
 .brand{display:flex;align-items:center;gap:.8rem;padding:.2rem .3rem 1.2rem .3rem;margin-bottom:.9rem;border-bottom:1px solid rgba(255,255,255,.10);}

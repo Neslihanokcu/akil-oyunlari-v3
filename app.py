@@ -2829,18 +2829,18 @@ LANDING_CSS = """
   --latte-hover:#CFAF85; --text-main:#FFFFFF; --text-muted:#B0C4B8;
 }
 html, body, .stApp{font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;}
-.stApp{background: radial-gradient(1000px 500px at 50% -10%, rgba(217,185,143,0.15), transparent 70%), #1A130E !important; color:var(--text-main);}
+.stApp{background: radial-gradient(1000px 500px at 50% -10%, rgba(226,196,157,0.12), transparent 70%), #16221A !important; color:var(--text-main);}
 header[data-testid="stHeader"]{background:transparent !important;}
 section[data-testid="stSidebar"],[data-testid="collapsedControl"],[data-testid="stSidebarCollapsedControl"],[data-testid="stSidebarCollapseButton"]{display:none !important;}
 .block-container{max-width:1050px !important;padding-top:2.5rem !important;padding-bottom:3rem !important;}
 
-/* Üst Başlık - Daha Vurgulu ve Şık Latte Tonu */
+/* Üst Başlık */
 .lp-brand{display:flex;align-items:center;gap:.9rem;color:var(--latte);font-weight:800;font-size:1.35rem;letter-spacing:-0.2px;}
-.lp-brand span{color:var(--latte);text-shadow:0 2px 8px rgba(217,185,143,0.25);}
-.lp-brand svg{color:var(--latte);filter:drop-shadow(0 2px 6px rgba(217,185,143,0.35));}
+.lp-brand span{color:var(--latte);text-shadow:0 2px 8px rgba(226,196,157,0.25);}
+.lp-brand svg{color:var(--latte);filter:drop-shadow(0 2px 6px rgba(226,196,157,0.35));}
 
 /* Hero Kart Yapısı */
-.lp-hero{margin:2.2rem 0 1.8rem 0;background:linear-gradient(145deg, #2B2018 0%, #201711 100%);border:1px solid var(--card-border);border-radius:20px;padding:2.8rem 2.5rem;box-shadow:0 20px 40px rgba(0,0,0,0.45);}
+.lp-hero{margin:2.2rem 0 1.8rem 0;background:linear-gradient(145deg, #283D31 0%, #1D2D24 100%);border:1px solid var(--card-border);border-radius:20px;padding:2.8rem 2.5rem;box-shadow:0 20px 40px rgba(0,0,0,0.45);}
 .lp-eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--latte);margin-bottom:.9rem;}
 .lp-h1{font-family:'DM Serif Display',Georgia,serif;font-size:2.8rem;line-height:1.15;color:#FFFFFF;max-width:720px;}
 .lp-h1 span{color:var(--latte);font-style:italic;}
@@ -2848,34 +2848,34 @@ section[data-testid="stSidebar"],[data-testid="collapsedControl"],[data-testid="
 
 /* Rozetler */
 .lp-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem;}
-.lp-chips span{font-size:.82rem;font-weight:700;color:var(--latte-light);background:rgba(217,185,143,0.08);border:1px solid rgba(217,185,143,0.22);padding:.4rem .9rem;border-radius:99px;}
+.lp-chips span{font-size:.82rem;font-weight:700;color:var(--latte-light);background:rgba(226,196,157,0.08);border:1px solid rgba(226,196,157,0.22);padding:.4rem .9rem;border-radius:99px;}
 
 /* Grid Kartlar */
 .lp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;margin-top:2rem;}
 .lp-card{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:1.3rem;transition:all .25s ease;}
 .lp-card:hover{border-color:var(--latte);transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,0.3);}
-.lp-card-i{font-size:1.6rem;margin-bottom:.6rem;display:inline-block;padding:.4rem .6rem;background:rgba(217,185,143,0.1);border-radius:10px;}
+.lp-card-i{font-size:1.6rem;margin-bottom:.6rem;display:inline-block;padding:.4rem .6rem;background:rgba(226,196,157,0.1);border-radius:10px;}
 .lp-card-t{font-weight:800;color:var(--latte);font-size:1.02rem;margin-top:.2rem;}
 .lp-card-d{color:var(--text-muted);font-size:.86rem;line-height:1.5;margin-top:.35rem;}
 
-/* GEÇİŞ NOKTASI BUTONLARI: Çiğ durmayan, koyu ambiyansa uyumlu ve asil latte geçişli tasarım */
+/* GEÇİŞ NOKTASI BUTONLARI: Orman Yeşili ve Latte Uyumlu */
 .stApp .stButton > button {
   border-radius: 14px !important;
   font-weight: 800 !important;
   padding: .85rem 1.6rem !important;
   min-height: 3.4rem !important;
-  background: linear-gradient(135deg, #32251D 0%, #221812 100%) !important;
-  border: 1.5px solid rgba(217,185,143,0.45) !important;
-  color: var(--latte-light) !important;
+  background: linear-gradient(135deg, #2A3F33 0%, #1F3027 100%) !important;
+  border: 1.5px solid rgba(226,196,157,0.4) !important;
+  color: var(--latte) !important;
   box-shadow: 0 4px 20px rgba(0,0,0,0.35) !important;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 .stApp .stButton > button:hover {
   background: var(--latte) !important;
-  color: #1A130E !important;
+  color: #16221A !important;
   border-color: var(--latte) !important;
   transform: translateY(-2.5px);
-  box-shadow: 0 8px 25px rgba(217,185,143,0.3) !important;
+  box-shadow: 0 8px 25px rgba(226,196,157,0.3) !important;
 }
 
 .lp-footer{margin-top:3.5rem;}

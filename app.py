@@ -3589,15 +3589,14 @@ def main():
             unsafe_allow_html=True,
         )
         
-    col1, col2, col3 = st.columns([1, 1.5, 1])
+col1, col2, col3 = st.columns([1, 1.5, 1])
         with col2:
             pin_input = st.text_input("Yönetici PIN / Şifre", type="password", key="admin_pin_box")
             
-            # Form kullanmadan, butonu ve Enter tetikleyicisini doğrudan bağlıyoruz
             if st.button("🔒 Giriş Yap", type="primary", use_container_width=True) or (pin_input and st.session_state.get('enter_basildi', False)):
                 pass
 
-            if pin_input == "neslihan" or pin_input == "1453":
+            if pin_input == "6991" or pin_input == "1453":
                 st.session_state.authenticated = True
                 st.rerun()
             elif pin_input and len(pin_input) >= 4:

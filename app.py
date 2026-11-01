@@ -3597,7 +3597,7 @@ def main():
             if st.button("🔒 Giriş Yap", type="primary", use_container_width=True) or (pin_input and st.session_state.get('enter_basildi', False)):
                 pass
 
-            if pin_input == "6991" or pin_input == "1453":
+            if pin_input == "neslihan" or pin_input == "1453":
                 st.session_state.authenticated = True
                 st.rerun()
             elif pin_input and len(pin_input) >= 4:

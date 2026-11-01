@@ -3591,16 +3591,17 @@ def main():
         
     col1, col2, col3 = st.columns([1, 1.5, 1])
         with col2:
-            with st.form("admin_login_form"):
-                pin_input = st.text_input("Yönetici PIN / Şifre", type="password", key="admin_pin_box")
-                submit_button = st.form_submit_button("🔒 Giriş Yap", type="primary", use_container_width=True)
-                
-            if submit_button:
-                if pin_input == "6991" or pin_input == "1453":
-                    st.session_state.authenticated = True
-                    st.rerun()
-                else:
-                    st.error("Hatalı şifre! Lütfen tekrar deneyin.")
+            pin_input = st.text_input("Yönetici PIN / Şifre", type="password", key="admin_pin_box")
+            
+            # Form kullanmadan, butonu ve Enter tetikleyicisini doğrudan bağlıyoruz
+            if st.button("🔒 Giriş Yap", type="primary", use_container_width=True) or (pin_input and st.session_state.get('enter_basildi', False)):
+                pass
+
+            if pin_input == "6991" or pin_input == "1453":
+                st.session_state.authenticated = True
+                st.rerun()
+            elif pin_input and len(pin_input) >= 4:
+                st.error("Hatalı şifre! Lütfen tekrar deneyin.")
 
             if st.button("← Ana Sayfaya Dön", use_container_width=True):
                 st.session_state.mode = "landing"

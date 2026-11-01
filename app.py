@@ -3589,7 +3589,7 @@ def main():
             unsafe_allow_html=True,
         )
         
-col1, col2, col3 = st.columns([1, 1.5, 1])
+    col1, col2, col3 = st.columns([1, 1.5, 1])
         with col2:
             with st.form("admin_login_form"):
                 pin_input = st.text_input("Yönetici PIN / Şifre", type="password", key="admin_pin_box")

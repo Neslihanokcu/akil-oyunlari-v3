@@ -3589,21 +3589,23 @@ def main():
             unsafe_allow_html=True,
         )
         
-        col1, col2, col3 = st.columns([1, 1.5, 1])
+       col1, col2, col3 = st.columns([1, 1.5, 1])
         with col2:
-            pin_input = st.text_input("Yönetici PIN / Şifre", type="password", key="admin_pin_box")
-            if st.button("🔓 Giriş Yap", type="primary", use_container_width=True):
-                # İstediğiniz şifreyi buraya yazabilirsiniz (Örn: neslihan)
-                if pin_input == "neslihan" or pin_input == "1453": 
+            with st.form("admin_login_form"):
+                pin_input = st.text_input("Yönetici PIN / Şifre", type="password", key="admin_pin_box")
+                submit_button = st.form_submit_button("🔒 Giriş Yap", type="primary", use_container_width=True)
+                
+            if submit_button:
+                if pin_input == "6991" or pin_input == "1453":
                     st.session_state.authenticated = True
                     st.rerun()
                 else:
                     st.error("Hatalı şifre! Lütfen tekrar deneyin.")
-            
+
             if st.button("← Ana Sayfaya Dön", use_container_width=True):
                 st.session_state.mode = "landing"
                 st.rerun()
-        return
+            return
     # ---------------------------------------------
     st.set_page_config(
         page_title="Akıl ve Zeka Oyunları Paneli", page_icon="🧠", layout="wide", initial_sidebar_state="auto"

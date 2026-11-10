@@ -3589,26 +3589,26 @@ def main():
             unsafe_allow_html=True,
         )
 col1, col2, col3 = st.columns([1, 1.5, 1])
-        with col2:
+    with col2:
             pin_input = st.text_input("Yönetici PIN / Şifre", type="password", key="admin_pin_box")
             
-            if st.button("🔒 Giriş Yap", type="primary", use_container_width=True):
-                if pin_input == "6991" or pin_input == "1453":
+        if st.button("🔒 Giriş Yap", type="primary", use_container_width=True):
+            if pin_input == "6991" or pin_input == "1453":
                     st.session_state.authenticated = True
                     st.rerun()
-                else:
+            else:
                     st.error("Hatalı şifre! Lütfen tekrar deneyin.")
 
-            if st.button("← Ana Sayfaya Dön", use_container_width=True):
+        if st.button("← Ana Sayfaya Dön", use_container_width=True):
                 st.session_state.mode = "landing"
                 st.rerun()
 
             # --- KVKK Aydınlatma Metni Görünürlüğü ---
             st.write("")
-            with st.expander("📄 KVKK Aydınlatma Metni"):
+    with st.expander("📄 KVKK Aydınlatma Metni"):
                 kvkk_text()
 
-            return
+    return
     # ---------------------------------------------
     st.set_page_config(
         page_title="Akıl ve Zeka Oyunları Paneli", page_icon="🧠", layout="wide", initial_sidebar_state="auto"

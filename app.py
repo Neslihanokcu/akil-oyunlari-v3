@@ -1645,7 +1645,8 @@ def page_dashboard():
         st.markdown("### Öğrenci listenizi yükleyin")
         st.info("Henüz öğrenci listesi yüklenmemiş. Veri girişi ve yükleme işlemleri için sol menüden **Yönetici Paneli**'ne giderek giriş yapın.")
         if st.button("Yönetici Paneline Git", type="primary"):
-            goto(PG_ADMIN)
+    st.session_state.mode = "live"  # veya ilgili yönetim sayfası state değişkeniniz
+    st.rerun()
         return
 
     stats = compute_stats(students, matches)

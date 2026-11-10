@@ -3589,7 +3589,7 @@ def main():
             unsafe_allow_html=True,
         )
 
-        col1, col2, col3 = st.columns([1, 1.5, 1])
+       col1, col2, col3 = st.columns([1, 1.5, 1])
         with col2:
             pin_input = st.text_input("Yönetici PIN / Şifre", type="password", key="admin_pin_box")
             
@@ -3605,6 +3605,12 @@ def main():
             if st.button("← Ana Sayfaya Dön", use_container_width=True):
                 st.session_state.mode = "landing"
                 st.rerun()
+
+            # --- KVKK Aydınlatma Metni Görünürlüğü ---
+            st.write("")
+            with st.expander("📄 KVKK Aydınlatma Metni"):
+                kvkk_text()
+
             return
     # ---------------------------------------------
     st.set_page_config(

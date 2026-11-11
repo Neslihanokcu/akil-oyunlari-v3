@@ -3634,16 +3634,19 @@ def main():
                 submit_button = st.form_submit_button("🔒 Giriş Yap", use_container_width=True)
 
                 if submit_button:
-                    if not kvkk_onay:
-                        st.warning("Lütfen devam etmeden önce KVKK metnini onaylayın.")
+                  if not kvkk_onay:
+                    st.warning("Lütfen devam etmeden önce KVKK metnini onaylayın.")
+                   else:
+                    # Şifreyi doğrudan koddan değil, güvenli secrets alanından alıyoruz
+                    admin_pin = st.secrets.get("ADMIN_PIN", "")
+                    
+                      if not admin_pin:
+                        st.error("Sistem şifresi yapılandırılmamış (Secrets eksik).")
+                      elif pin_input == admin_pin:
+                        st.session_state.authenticated = True
+                        st.rerun()
                     else:
-                        admin_pin = st.secrets.get("ADMIN_PIN", "6991")
-                        
-                        if pin_input == admin_pin:
-                            st.session_state.authenticated = True
-                            st.rerun()
-                        else:
-                            st.error("Hatalı şifre! Lütfen tekrar deneyin.")
+                        st.error("Hatalı şifre! Lütfen tekrar deneyin.")
 
             if st.button("← Ana Sayfaya Dön", use_container_width=True):
                 st.session_state.mode = "landing"

@@ -3620,40 +3620,37 @@ def main():
         col1, col2, col3 = st.columns([1, 1.5, 1])
         with col2:
             # st.form kullanarak Enter tuşu ile submit (giriş) özelliğini aktif hale getiriyoruz
-            with st.form("login_form"):
-                pin_input = st.text_input("Yönetici PIN / Şifre", type="password", key="admin_pin_box")
-                
-                # --- KVKK Aydınlatma Metni ve Onay Alanı ---
-                st.write("")
-                with st.expander("📄 KVKK Aydınlatma Metni"):
-                    kvkk_text()
+           with st.form("login_form_unique"):
+            pin_input = st.text_input("Yönetici PIN / Şifre", type="password", key="admin_pin_unique_box")
+            
+            # --- KVKK Aydınlatma Metni ve Onay Alanı ---
+            st.write("")
+            with st.expander("📄 KVKK Aydınlatma Metni"):
+                kvkk_text()
 
-                kvkk_onay = st.checkbox("KVKK Aydınlatma Metnini okudum ve kabul ediyorum.", key="kvkk_onay_box")
+            kvkk_onay = st.checkbox("KVKK Aydınlatma Metnini okudum ve kabul ediyorum.", key="kvkk_onay_unique_box")
 
-               # Form içindeki submit butonu
-                submit_button = st.form_submit_button("🔒 Giriş Yap", use_container_width=True)
+            # Form içindeki submit butonu (Tek ve doğru kullanım)
+            submit_button = st.form_submit_button("🔒 Giriş Yap", use_container_width=True)
 
-                # Form içindeki submit butonu
-                submit_button = st.form_submit_button("🔒 Giriş Yap", use_container_width=True)
-
-                if submit_button:
-                    if not kvkk_onay:
-                        st.warning("Lütfen devam etmeden önce KVKK metnini onaylayın.")
+            if submit_button:
+                if not kvkk_onay:
+                    st.warning("Lütfen devam etmeden önce KVKK metnini onaylayın.")
+                else:
+                    # Şifreyi doğrudan koddan değil, güvenli secrets alanından alıyoruz
+                    admin_pin = st.secrets.get("ADMIN_PIN", "")
+                    
+                    if not admin_pin:
+                        st.error("Sistem şifresi yapılandırılmamış (Secrets eksik).")
+                    elif pin_input == admin_pin:
+                        st.session_state.authenticated = True
+                        st.rerun()
                     else:
-                        # Şifreyi doğrudan koddan değil, güvenli secrets alanından alıyoruz
-                        admin_pin = st.secrets.get("ADMIN_PIN", "")
-                        
-                        if not admin_pin:
-                            st.error("Sistem şifresi yapılandırılmamış (Secrets eksik).")
-                        elif pin_input == admin_pin:
-                            st.session_state.authenticated = True
-                            st.rerun()
-                        else:
-                            st.error("Hatalı şifre! Lütfen tekrar deneyin.")
+                        st.error("Hatalı şifre! Lütfen tekrar deneyin.")
 
-            if st.button("← Ana Sayfaya Dön", use_container_width=True):
-                st.session_state.mode = "landing"
-                st.rerun()
+        if st.button("← Ana Sayfaya Dön", use_container_width=True, key="back_to_landing_unique"):
+            st.session_state.mode = "landing"
+            st.rerun()
 
         return
     # ---------------------------------------------
